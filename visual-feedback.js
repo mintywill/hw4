@@ -5,10 +5,10 @@ function setup() {
 function draw() { 
   background(220);
 }
-var freqA = 261;
-var freqS = 440;
-var freqD = 392;
-var freqF = 294;
+var freqA = 400;
+var freqS = 200;
+var freqD = 260;
+var freqF = 390;
 
 var oscA, oscS, oscD, oscF;
 
@@ -18,7 +18,6 @@ var playingD = false;
 var playingF = false;
 
 function setup() {
-  createCanvas (100, 100);
   backgroundColor = color(255, 0, 255);
   textAlign(CENTER);
   
@@ -46,14 +45,16 @@ function setup() {
   oscF.amp(0);
   oscF.start();
 }
+//set up freq
 
 function draw() {
-  if (playingA, playingS, playingD, playingF) {
+  if (playingA, playingS) {
     background(0, 255, 255);
   } else {
     background(255, 0, 255);
   }
   text('click here,\nthen press A/S/D/F\n keys to play', width / 2, 40);
+
 }
 
 function keyPressed() {
@@ -74,51 +75,52 @@ function keyPressed() {
   }
   if (osc) {
     osc.amp(0.5, 0.1);
+    playing = true;
   }
 }
 
+//drawing new background+shapes
 function draw() {
-  background(255);
+  background(0);
   fill(120);
   if (playingA) {
-    fill(0, 153, 115);
+    fill(210, 255, 247);
     noStroke();
-    ellipse(50, 50, 90, 90);
+    triangle(23, 75, 51, 20, 79, 75);
   }
   if (playingS) {
-    fill(0);
-    noStroke();
-    ellipse(50, 50, 70, 70);
+    fill(255, 221, 210);
+    triangle(23, 20, 51, 75, 79, 20);
   }
   if (playingD) {
-    fill(235);
-    noStroke();
-    ellipse(50, 50, 50, 50);
+    fill(255, 247, 210);
+    triangle(23, 75, 51, 20, 79, 75);
   }
   if (playingF) {
-    fill(200);
-    noStroke();
-    ellipse(50, 50, 30, 30);
+    fill(210, 216, 255);
+    triangle(23, 20, 51, 75, 79, 20);
   }
 }
+//QUESTION: DOES IT HAVE TO BE ELSE IF??
 
+//set the false function
 function keyReleased() {
   print("got key release for ", key);
   var osc;
   if (key == 'A') {
     osc = oscA;
-    playingA = false;
   } else if (key == 'S') {
     osc = oscS;
-    playingS = false;
   } else if (key == 'D') {
     osc = oscD;
-    playingD = false;
   } else if (key == 'F') {
     osc = oscF;
-    playingF = false;
   }
   if (osc) {
     osc.amp(0, 0.5);
+    playingA = false;
+    playingS = false;
+    playingD = false;
+    playingF = false;
   }
 }
