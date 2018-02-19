@@ -71,36 +71,28 @@ function keyPressed() {
     playing = true;
   }
     
-//use mouse to change the volume
-  if (mouseIsPressed) {
-    osc.amp(1.5);
-  }
-}
-
 //drawing new background+shapes
 function draw() {
   background(0);
   fill(120);
-  if (playingA) {
+  if (playingA&&mouseIsPressed) {
     fill(210, 255, 247);
     noStroke();
     triangle(23, 75, 51, 20, 79, 75);
   }
-  if (playingS) {
+  if (playingS&&mouseIsPressed) {
     fill(255, 221, 210);
     triangle(23, 20, 51, 75, 79, 20);
   }
-  if (playingD) {
+  if (playingD&&mouseIsPressed) {
     fill(255, 247, 210);
     triangle(23, 75, 51, 20, 79, 75);
   }
-  if (playingF) {
+  if (playingF&&mouseIsPressed) {
     fill(210, 216, 255);
     triangle(23, 20, 51, 75, 79, 20);
   }
 }
-//QUESTION: DOES IT HAVE TO BE ELSE IF??
-//when it is not else if i can play multiple at one time
 
 //set the false function
 function keyReleased() {
