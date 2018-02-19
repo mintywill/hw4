@@ -50,16 +50,6 @@ function setup() {
 }
 //set up sound
 
-function draw() {
-  if (playingA, playingS) {
-    background(0, 255, 255);
-  } else {
-    background(255, 0, 255);
-  }
-  text('click here,\nthen press A/S/D/F\n keys to play', width / 2, 40);
-
-}
-
 function keyPressed() {
   print("got key press for ", key);
   var osc;
